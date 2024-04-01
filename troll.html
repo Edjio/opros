@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розыгрыш</title>
+</head>
+<body>
+    <h1>Ура! Вы выиграли!</h1>
+    <p>Мы украли пароль от вашей страницы ВК! Через <span id="countdown">10</span> секунд она будет заблокирована!</p>
+
+        <script>
+        let seconds = 10;
+        const countdownElement = document.getElementById('countdown');
+
+        const countdownInterval = setInterval(function() {
+            seconds--;
+            countdownElement.textContent = seconds;
+
+            if (seconds <= 0) {
+                clearInterval(countdownInterval);
+                document.querySelector('h1').textContent = "Страница заблокирована!";
+                document.querySelector('p').textContent = "Вы больше не имеете доступ к своей странице.";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
